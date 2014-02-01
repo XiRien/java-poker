@@ -1,4 +1,4 @@
-Java-Poker
+java-poker
 ==========
 
 #About
