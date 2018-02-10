@@ -1,5 +1,8 @@
 group 'shah'
 version '1.0-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
 
 buildscript {
     repositories {
@@ -14,10 +17,6 @@ jar {
     baseName = 'java-poker'
     version =  '0.1.0'
 }
-
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 
