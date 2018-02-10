@@ -83,6 +83,7 @@ public class Card
             case 7:
                 stringValue = "Seven";
                 break;
+
             case 8:
                 stringValue = "Eight";
                 break;
@@ -114,6 +115,7 @@ public class Card
         return stringValue + " of " + stringSuit;
     }
 
+    @Override
     public String toString()
     {
         return convertNums(suit, value);
