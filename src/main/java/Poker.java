@@ -33,12 +33,17 @@ public class Poker
             System.out.println(c);
         }
 
+        System.out.println();
         System.out.println("Player has: " + player.checkStrength());
         System.out.println("Enemy has: " + enemy.checkStrength());
         System.out.println();
+        System.out.println("Player high: " + player.returnHighCard(player.hand()));
+        System.out.println("Enemy high: " + enemy.returnHighCard(enemy.hand()));
+        System.out.println();
 
         //Debug
-//        while (player.checkStrength() != 8)
+//        int gameNum = 1;
+//        while (player.checkStrength() != 9 && enemy.checkStrength() != 9)
 //        {
 //            player = new Hand();
 //            enemy = new Hand();
@@ -57,7 +62,6 @@ public class Poker
 //            player.sortHand(player.hand());
 //            enemy.sortHand(enemy.hand());
 //
-//
 //            System.out.println("===Player hand===");
 //            for (Card c : player.hand())
 //            {
@@ -70,10 +74,15 @@ public class Poker
 //            {
 //                System.out.println(c);
 //            }
-//
+//            System.out.println();
 //            System.out.println("Player has: " + player.checkStrength());
 //            System.out.println("Enemy has: " + enemy.checkStrength());
+//            System.out.println("Player high: " + player.returnHighCard(player.hand()));
+//            System.out.println("Enemy high: " + enemy.returnHighCard(enemy.hand()));
 //            System.out.println();
+//            gameNum++;
+//            System.out.println();
+//            System.out.println("game num: " + gameNum);
 //        }
 
         if (player.checkStrength() > enemy.checkStrength())
@@ -82,11 +91,22 @@ public class Poker
         }
         else if (player.checkStrength() < enemy.checkStrength())
         {
-            System.out.println("Game over, you lose!");
+            System.out.println("Game over, you lose.");
         }
         else
         {
-            System.out.println("Game over, you tied!");
+            if (player.returnHighCard(player.hand()) > enemy.returnHighCard(enemy.hand()))
+            {
+                System.out.println("Game over, you win!");
+            }
+            else if (player.returnHighCard(player.hand()) < enemy.returnHighCard(enemy.hand()))
+            {
+                System.out.println("Game over, you lose.");
+            }
+            else if (player.returnHighCard(player.hand()) == enemy.returnHighCard(enemy.hand()))
+            {
+                System.out.println("Game over, it's a tie!");
+            }
         }
     }
 }

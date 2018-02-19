@@ -15,10 +15,7 @@ public class Hand
         {
             hand.remove(cardIndex);
         }
-        else
-        {
-            throw new IllegalArgumentException("Card is not in the hand");
-        }
+        throw new IllegalArgumentException("Card is not in the hand");
     }
 
     public ArrayList<Card> hand()
@@ -26,7 +23,6 @@ public class Hand
         return hand;
     }
 
-    //TODO - need to sort by value and rank/suit
     public static void sortHand(ArrayList<Card> hand)
     {
         Card temp;
@@ -48,10 +44,22 @@ public class Hand
         }
     }
 
+    public int returnHighCard(ArrayList<Card> hand)
+    {
+        int highCard = hand.get(0).getValue();
+        for(int i = 1; i < hand.size(); i++)
+        {
+            if(hand.get(i).getValue() > highCard)
+            {
+                highCard = hand.get(i).getValue();
+            }
+        }
+        return highCard;
+    }
+
     public int checkStrength()
     {
         HandStrength strength = new HandStrength(hand);
-//        strength.isHighCard(hand);
         strength.isPair();
         strength.isTwoPair();
         strength.isThreeKind();
